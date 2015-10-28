@@ -1,7 +1,7 @@
 {
   "name": "ember-superstatic",
-  "version": "0.0.0",
-  "description": "The default blueprint for ember-cli addons.",
+  "version": "0.1.0",
+  "description": "Easily include the Superstatic environment in Ember",
   "directories": {
     "doc": "doc",
     "test": "tests"
