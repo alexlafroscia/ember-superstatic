@@ -11,12 +11,23 @@
     "build": "ember build",
     "test": "ember try:testall"
   },
-  "repository": "",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/alexlafroscia/ember-superstatic.git"
+  },
+  "bugs": {
+    "url": "https://github.com/alexlafroscia/ember-superstatic/issues"
+  },
   "engines": {
     "node": ">= 0.10.0"
   },
-  "author": "",
+  "author": "Alex LaFroscia <alex@lafroscia.com>",
   "license": "MIT",
+  "keywords": [
+    "ember-addon",
+    "environment",
+    "superstatic"
+  ],
   "devDependencies": {
     "broccoli-asset-rev": "^2.0.2",
     "ember-cli": "1.13.7",
@@ -37,9 +48,6 @@
     "ember-disable-prototype-extensions": "^1.0.0",
     "ember-try": "0.0.6"
   },
-  "keywords": [
-    "ember-addon"
-  ],
   "dependencies": {
     "ember-cli-babel": "^5.0.0",
     "superstatic": "^2.2.2"
