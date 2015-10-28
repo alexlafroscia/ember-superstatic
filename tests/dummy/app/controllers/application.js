@@ -1,5 +1,5 @@
 import Ember from 'ember';
-import env from 'ember-superstatic/environment';
+import env from 'superstatic/environment';
 
 const { Controller } = Ember;
 

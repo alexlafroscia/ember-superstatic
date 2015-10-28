@@ -4,7 +4,7 @@
 var superstatic = require('superstatic');
 
 module.exports = {
-  name: 'ember-superstatic',
+  name: 'superstatic',
 
   serverMiddleware: function(config) {
     config.app.use(superstatic());
