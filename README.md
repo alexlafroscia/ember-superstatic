@@ -16,7 +16,7 @@ const { Route } = Ember;
 export default Route.extend({
 
     model() {
-        return ajax(`${env.API_URL}/users');
+        return ajax(`${env.API_URL}/users`);
     }
 
 });
@@ -38,7 +38,7 @@ To set up the environment that will be used in Development, defined an `.env.jso
 
 ```json
 {
-  'API_URL': 'http://api.mysite.com'
+  "API_URL": "http://api.mysite.com"
 }
 ```
 
