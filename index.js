@@ -14,5 +14,9 @@ module.exports = {
     if (type === 'head') {
       return "<script src='/__/env.js'></script>";
     }
+  },
+
+  includedCommands: function() {
+    return require('./lib/commands');
   }
 };
