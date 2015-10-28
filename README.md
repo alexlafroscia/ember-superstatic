@@ -118,5 +118,8 @@ import env from 'superstatic/environment';
 console.log(env); // -> { FOO: bar, HELLO: world }
 ```
 
+If you need to do more advanced configuration, you can use a `superstatic.json` file as specified in the [Superstatic documentation][superstatic-config-docs].
+
 
 [superstatic-github]: https://github.com/firebase/superstatic
+[superstatic-config-docs]: http://superstatic.org/#configuration
