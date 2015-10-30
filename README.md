@@ -69,6 +69,8 @@ module.exports = (function() {
 })();
 ```
 
+A starter `env.js` configuration file can be generated using `ember g superstatic` if you want help getting started.
+
 ## Server Configuration
 
 If you need to do more advanced sever configuration, you can use a `superstatic.json` file as specified in the [Superstatic documentation][superstatic-config-docs].
