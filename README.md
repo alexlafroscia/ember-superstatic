@@ -4,7 +4,13 @@ Easily include the Superstatic environment from Ember
 
 ## What does it do?
 
-Not much, actually, but enough to be useful :wink: it handles adding including the Superstatic environment file to your `index.html` and allows you to easily import it for use within your app:
+`ember-superstatic` aims to make it really easy to use [Superstatic][superstatic-github] with Ember.js and the Ember CLI.  Specifically, it does the following:
+
+1. Allows Ember to automatically pull in the environment from Superstatic
+2. Provides a nice wrapper around the Superstatic environment, allowing you to interface with it in an Ember-ish way
+3. Sets up a wrapper around the Superstatic server that can be used in Production to pull in environment variables
+
+The result is that you can write Ember code like this, while pulling variables from the environment that the server is running in.
 
 ```javascript
 import Ember from 'ember';
@@ -30,16 +36,45 @@ Assuming you have a modern version of the Ember CLI:
 ember install ember-superstatic
 ```
 
-## Configuration
+## Usage
 
-Currently, `ember-superstatic` only helps you out in Development; you'll still need to set up Superstatic in production (although I'm working on a solution to help with that, too).
+In development, there isn't much you have to do! Just set up the environment (see below) Superstatic will be added to the regular Ember development server.
 
-To set up the environment that will be used in Development, defined an `.env.json` file like so:
+In production, you can use `ember superstatic` to turn on a Superstatic server that will work with the environment configuration information below.  However, using this server isn't required; you application can be hosted anywhere that exposes an `/__/env.js` file that sets up a `window.__env` variable with your desired configuration.
+
+
+## Environment Configuration
+
+`ember-superstatic` will look for a file (`.env.json`, `.env.js`, `env.json`, or `env.js`) that will be imported and used as the environment to expose to your Ember application.
+
+If you want a simple configuration, using a `JSON` file will be easier for you.  For example, you can set up a file like this:
 
 ```json
+// env.json
 {
-  "API_URL": "http://api.mysite.com"
+  "FOO": "bar"
 }
 ```
 
-This will be used by Superstatic to define the development environment.
+to expose that configuration.
+
+If you need something more complex, like pulling in variables from your `BASH` environment, you can use an `env.js` file to export the environment through a module, like so:
+
+```javascript
+// env.js
+module.exports = (function() {
+  return {
+    FOO: process.env.FOO
+  }
+})();
+```
+
+A starter `env.js` configuration file can be generated using `ember g superstatic` if you want help getting started.
+
+## Server Configuration
+
+If you need to do more advanced sever configuration, you can use a `superstatic.json` file as specified in the [Superstatic documentation][superstatic-config-docs].
+
+
+[superstatic-github]: https://github.com/firebase/superstatic
+[superstatic-config-docs]: http://superstatic.org/#configuration
