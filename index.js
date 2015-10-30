@@ -2,12 +2,15 @@
 'use strict';
 
 var superstatic = require('superstatic');
+var getEnvironment = require('./lib/tasks/get-environment');
 
 module.exports = {
   name: 'superstatic',
 
   serverMiddleware: function(config) {
-    config.app.use(superstatic());
+    config.app.use(superstatic({
+      env: getEnvironment()
+    }));
   },
 
   contentFor: function(type) {
