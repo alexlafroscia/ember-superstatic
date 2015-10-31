@@ -69,11 +69,26 @@ module.exports = (function() {
 })();
 ```
 
-A starter `env.js` configuration file can be generated using `ember g superstatic` if you want help getting started.
+A starter `env.js` configuration file can be generated using `ember g superstatic-config` if you want help getting started.
 
 ## Server Configuration
 
 If you need to do more advanced sever configuration, you can use a `superstatic.json` file as specified in the [Superstatic documentation][superstatic-config-docs].
+
+
+## Running in Docker
+
+`ember-superstatic` is a great way to set up your Ember application to run inside a Docker container.  A blueprint is provided to generate a working `Dockerfile` that you can use.  The steps from Ember application (assuming `ember-superstatic` is installed) to running Docker container are as follows:
+
+```bash
+$ ember g superstatic-dockerfile
+$ docker build .
+...
+Successfully built adccad7b5736
+$ docker run -d -p 80:3474 adccad7b5736
+```
+
+This will build your Docker image and then run a container from it, in the background, binding port `80` of the container to the Superstatic server running inside of it.  More information is available in Docker's documentation.
 
 
 [superstatic-github]: https://github.com/firebase/superstatic
