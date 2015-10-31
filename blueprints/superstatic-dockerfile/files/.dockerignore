@@ -1,0 +1,14 @@
+# Docker stuff that we don't need to copy
+Dockerfile
+.dockerignore
+
+# Dependencies that will be re-built inside the container
+node_modules/*
+bower_components/*
+
+# Built files that will be re-generated inside the container
+dist/*
+
+# Other Ember-related stuff that doesn't need to be copied inside
+tests/*
+tmp/*
