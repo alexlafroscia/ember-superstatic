@@ -85,10 +85,10 @@ $ ember g superstatic-dockerfile
 $ docker build .
 ...
 Successfully built adccad7b5736
-$ docker run -d -p 80:3474 adccad7b5736
+$ docker run -d -p 80:3474 -e "GREETING=Hello, world!" adccad7b5736
 ```
 
-This will build your Docker image and then run a container from it, in the background, binding port `80` of the container to the Superstatic server running inside of it.  More information is available in Docker's documentation.
+This will build your Docker image and then run a container from it in the background, bind port `80` of the container to the Superstatic server running inside of it and set the environment variable `GREETING` inside the container to `Hello, world!` (which your Ember application might then include using Superstatic, which is the whole point!).  More information is available in Docker's documentation.
 
 
 [superstatic-github]: https://github.com/firebase/superstatic
