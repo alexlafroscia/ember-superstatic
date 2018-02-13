@@ -1,13 +1,9 @@
-import Ember from 'ember';
+import Controller from '@ember/controller';
+import { alias } from '@ember/object/computed';
 import env from 'superstatic/environment';
 
-const { Controller, computed } = Ember;
-const { alias } = computed;
-
 export default Controller.extend({
-
-  env: env,
+  env,
 
   greeting: alias('env.GREETING')
-
 });
