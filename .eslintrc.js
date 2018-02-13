@@ -5,16 +5,21 @@ module.exports = {
     sourceType: 'module'
   },
   plugins: [
-    'ember'
+    'ember',
+    'prettier'
   ],
   extends: [
     'eslint:recommended',
-    'plugin:ember/recommended'
+    'plugin:ember/recommended',
+    'prettier'
   ],
   env: {
     browser: true
   },
   rules: {
+    'prettier/prettier': ['error', {
+      singleQuote: true
+    }]
   },
   overrides: [
     // node files
@@ -24,6 +29,7 @@ module.exports = {
         'testem.js',
         'ember-cli-build.js',
         'config/**/*.js',
+        'lib/**/*.js',
         'tests/dummy/config/**/*.js'
       ],
       excludedFiles: [

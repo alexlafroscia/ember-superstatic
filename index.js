@@ -1,24 +1,26 @@
 'use strict';
 
-var superstatic = require('superstatic');
-var getEnvironment = require('./lib/tasks/get-environment');
+const superstatic = require('superstatic');
+const getEnvironment = require('./lib/tasks/get-environment');
 
 module.exports = {
   name: 'superstatic',
 
-  serverMiddleware: function(config) {
-    config.app.use(superstatic({
-      env: getEnvironment()
-    }));
+  serverMiddleware(config) {
+    config.app.use(
+      superstatic({
+        env: getEnvironment(this.project)
+      })
+    );
   },
 
-  contentFor: function(type) {
+  contentFor(type) {
     if (type === 'head') {
       return "<script src='/__/env.js'></script>";
     }
   },
 
-  includedCommands: function() {
+  includedCommands() {
     return require('./lib/commands');
   }
 };

@@ -11,4 +11,3 @@ module.exports = {
     // Borrowed from rwj.  Seems like a good idea.
   }
 };
-
