@@ -35,9 +35,24 @@ This should generate a configuration file for you automatically in `config/super
 
 ## Usage
 
+### Development
+
 In development, `superstatic` is automatically hooked into the development server.
 
+### Production
+
 In production, you can use `ember superstatic` to turn on a `superstatic` server pre-configured to work with an Ember application.
+
+A few arguments are supported:
+
+| Flag                | Example        | Description                               |
+| :--                 | :--            | :--                                       |
+| `compression` (`c`) | `-c`           | Compress files when served                |
+| `debug` (`d`)       | `-d`           | Enable verbose logging of requests        |
+| `port` (`p`)        | `-p 7101`      | Set the port that the server will run on  |
+| `hostname` (`h`)    | `-h 127.0.0.1` | Set the hostname that the server will use |
+
+See the [`superstatic` README][superstatic-github] for more information on these options
 
 ## Running in Docker
 
