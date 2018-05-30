@@ -8,7 +8,7 @@ Provide configuration to an Ember app at runtime, via [`superstatic`][superstati
 
 `ember-superstatic` aims to make it easy to use `superstatic` with Ember.js and the Ember CLI.  Specifically, it does the following:
 
-1. Provides a means for importing the `superstatic` configuration into your application
+1. Provides a means for importing the `superstatic` environment into your application
 2. Runs `superstatic` as part of the development server of the Ember CLI
 3. Provides an `ember` command for starting a Production-ready `superstatic` server for your app
 
@@ -16,11 +16,12 @@ The result is that you can write Ember code like this, while pulling variables f
 
 ```javascript
 import Route from '@ember/routing/route';
-import env from 'superstatic';
+import env from 'superstatic/env';
 
 export default Route.extend({
-  model() {
-    return fetch(`${env.API_URL}/users`).then(res => res.json());
+  async model() {
+    const response = await fetch(`${env.API_URL}/users`);
+    return response.json();
   }
 });
 ```

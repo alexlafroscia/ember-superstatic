@@ -13,12 +13,8 @@
  *
  *   import env from 'superstatic/env';
  *
- * The function to generate the configuration is passed an `environment` variable
- * that corresponds to the matching Ember environment. When running
- * `ember superstatic` the value will always be `production`.
- *
  */
-module.exports = function(/* environment */) {
+module.exports = function() {
   return {
     env: {
       GREETING: process.env.GREETING || 'Hello, world!'

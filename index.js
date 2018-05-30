@@ -1,16 +1,16 @@
 'use strict';
 
-const superstatic = require('superstatic');
-const getEnvironment = require('./lib/tasks/get-environment');
+const superstaticMiddleware = require('superstatic');
+
+const getConfig = require('./lib/read-config-file');
+const superstaticCommand = require('./lib/commands/superstatic');
 
 module.exports = {
-  name: 'superstatic',
+  name: 'ember-superstatic',
 
   serverMiddleware(config) {
     config.app.use(
-      superstatic({
-        env: getEnvironment(this.project)
-      })
+      superstaticMiddleware(getConfig(this.project, config.options.environment))
     );
   },
 
@@ -21,6 +21,14 @@ module.exports = {
   },
 
   includedCommands() {
-    return require('./lib/commands');
+    return {
+      superstatic: superstaticCommand
+    };
+  },
+
+  included(app) {
+    this._super.apply(this, arguments);
+
+    app.import('vendor/shims/superstatic-env.js');
   }
 };
